@@ -177,7 +177,7 @@ img {
 .site-nav-link.current::after {
   content: '';
   position: absolute;
-  top: 77px;
+  bottom: -1px;
   width: 100%;
   height: 4px;
   background-color: currentColor;
