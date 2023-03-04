@@ -57,6 +57,7 @@ img {
 .active-accent:hover,
 .active-accent:focus {
   color: var(--accent-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .container {
@@ -96,11 +97,12 @@ img {
   border-radius: 4px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button:hover,
 .button:focus {
-  background: var(--accent-color-hover);
+  background-color: var(--accent-color-hover);
 }
 
 .btn-primary {
@@ -156,20 +158,11 @@ img {
   font-size: 14px;
   letter-spacing: 0.02em;
   text-decoration: none;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .site-nav-link {
   color: var(--dark-gray-color);
-}
-.site-nav-link:hover::after,
-.site-nav-link:focus::after {
-  content: '';
-  position: absolute;
-  bottom: -1px;
-  width: 100%;
-  height: 4px;
-  background-color: currentColor;
-  border-radius: 2px;
 }
 .site-nav-link.current {
   color: var(--accent-color);
@@ -190,14 +183,10 @@ img {
   gap: 30px;
 }
 .icon-envelope {
-  width: 16px;
-  height: 12px;
   margin-right: 10px;
   fill: currentColor;
 }
 .icon-smartphone {
-  width: 10px;
-  height: 16px;
   margin-right: 10px;
   fill: currentColor;
 }
@@ -301,8 +290,6 @@ img {
 }
 .specifics-img {
   display: block;
-  width: 70px;
-  height: 70px;
   margin: 0 auto;
 }
 .specifics-caption {
@@ -409,10 +396,10 @@ img {
   border-radius: 50%;
   background-color: var(--white-color);
   color: var(--icon-color);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .social-icon {
-  width: 20px;
-  height: 20px;
   fill: currentColor;
 }
 .social-link:hover,
@@ -436,6 +423,7 @@ img {
   color: var(--icon-color);
   border: 1px solid currentColor;
   border-radius: 4px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .client-link:hover,
 .client-link:focus {
@@ -443,8 +431,6 @@ img {
 }
 .client-icon {
   margin: 0 auto;
-  width: 106px;
-  height: 60px;
   fill: currentColor;
 }
 /* footer */
@@ -477,6 +463,7 @@ img {
   font-size: 14px;
   line-height: 1.71;
   text-decoration: none;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .address-map {
@@ -540,8 +527,6 @@ img {
   border-radius: 4px;
 }
 .subscribe-button svg {
-  width: 24px;
-  height: 24px;
   fill: currentColor;
 }
 
@@ -563,6 +548,9 @@ img {
   background-color: var(--bg-color);
   border: none;
   border-radius: 4px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .filter-button:hover {
   color: var(--white-color);
@@ -579,14 +567,17 @@ img {
 .project-card {
   width: calc((100% - 60px) / 3);
   border: 1px solid #eeeeee;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .project-card:hover {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
   cursor: pointer;
 }
+.project-card:hover .overlay-card {
+  transform: translateY(-100%);
+}
 .project-overlay {
-  width: 100%;
   position: relative;
   overflow: hidden;
 }
@@ -597,15 +588,15 @@ img {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: var(--accent-opc-color);
-}
-.overlay-card-text {
   padding: 63px 24px;
   font-size: 18px;
   line-height: 1.56;
   letter-spacing: 0.03em;
   text-align: left;
   color: var(--white-color);
+  background-color: var(--accent-opc-color);
+  transform: translateY(0%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .project-description {
   padding: 20px 24px;
@@ -622,4 +613,14 @@ img {
   line-height: 1.88;
   letter-spacing: 0.03em;
   color: var(--gray-color);
+}
+
+/* Modale window */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
 }
